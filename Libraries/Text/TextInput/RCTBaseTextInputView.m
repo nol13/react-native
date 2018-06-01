@@ -268,7 +268,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithFrame:(CGRect)frame)
 
   NSString *previousText = [_predictedText substringWithRange:range] ?: @"";
 
-  if (_predictedText) {
+  if (!NSEqualRanges(range, NSMakeRange(0, 0)) && _predictedText) {
     _predictedText = [_predictedText stringByReplacingCharactersInRange:range withString:text];
   } else {
     _predictedText = text;
